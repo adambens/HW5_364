@@ -124,6 +124,11 @@ def index():
         return redirect(url_for('all_lists'))
     return render_template('index.html',form=form)
 
+# New Addition for new branch
+@app.route('/Hello', methods=["GET","POST"])
+def hello():
+    return "Hello World"
+
 # Provided - see below for additional TODO
 @app.route('/all_lists',methods=["GET","POST"])
 def all_lists():
