@@ -71,7 +71,7 @@ class UpdateButtonForm(FlaskForm):
 # TODO 364: Define a form class for updating the priority of a todolist item
 #(HINT: What class activity you have done before is this similar to?)
 class UpdateItemPriorityForm(FlaskForm):
-    new_priority = IntegerField("Enter the priority of this item:", validators=[Required()])
+    updated_priority = IntegerField("Enter the priority of this item:", validators=[Required()])
     submit = SubmitField('Update')
 
 
@@ -158,7 +158,7 @@ def update(item):
     form = UpdateItemPriorityForm()
     if form.validate_on_submit():
         if request.method == 'POST':
-            priority = form.new_priority.data
+            priority = form.updated_priority.data
             i = TodoItem.query.filter_by(description=item).first()
             i.priority = priority
             db.session.commit()
